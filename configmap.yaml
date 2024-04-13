@@ -6,3 +6,4 @@ metadata:
 data:
   BUCKETNAME: bucket-k8s-final-project
   KEY: bg1.jpg
+  HEADER: "Trupal Chaudhary | Vaishnavi Barot | Keerthigan Lalitharan"

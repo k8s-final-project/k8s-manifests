@@ -8,5 +8,5 @@ spec:
     app: final-app
   ports:
     - port: 81
-      targetPort: 8080
+      targetPort: 81
   type: LoadBalancer
