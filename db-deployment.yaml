@@ -24,7 +24,7 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: mydbsecrets
+                  name: db-secrets
                   key: MYSQL_ROOT_PASSWORD
       volumes:
         - name: final-db-mount
