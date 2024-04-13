@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: final-cm
+  namespace: final
+data:
+  key: value
