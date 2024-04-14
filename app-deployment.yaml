@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: final-app
+  namespace: final
+spec:
+  selector:
+    matchLabels:
+      app: final-app
+  template:
+    metadata:
+      labels:
+        app: final-app
+    spec:
+      containers:
+        - name: final-app
+          image: 120587352063.dkr.ecr.us-east-1.amazonaws.com/my_app:v1
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "50Mi"
+          ports:
+            - containerPort: 81
+          env:
+            - name: DBHOST
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: DBHOST
+
+            - name: DBUSER
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: DBUSER
+
+            - name: DBPORT
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: DBPORT
+
+            - name: DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: DATABASE
+
+            - name: DBPWD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: DBPWD
+
+            - name: BUCKETNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: final-cm
+                  key: BUCKETNAME
+
+            - name: KEY
+              valueFrom:
+                configMapKeyRef:
+                  name: final-cm
+                  key: KEY

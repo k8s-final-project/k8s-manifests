@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: final-cm
+  namespace: final
+data:
+  BUCKETNAME: bucket-k8s-final-project
+  KEY: bg1.jpg
+  HEADER: "Trupal Chaudhary | Vaishnavi Barot | Keerthigan Lalitharan"

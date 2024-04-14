@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: final-db
+  namespace: final
+spec:
+  selector:
+    matchLabels:
+      app: final-db
+  template:
+    metadata:
+      labels:
+        app: final-db
+    spec:
+      containers:
+        - name: final-db
+          image: 120587352063.dkr.ecr.us-east-1.amazonaws.com/my_db:v1
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - name: final-db-mount
+              mountPath: /var/lib/mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: MYSQL_ROOT_PASSWORD
+      volumes:
+        - name: final-db-mount
+          persistentVolumeClaim:
+            claimName: db-pvc
