@@ -63,3 +63,9 @@ spec:
                 configMapKeyRef:
                   name: final-cm
                   key: KEY
+
+            - name: HEADER
+              valueFrom:
+                configMapKeyRef:
+                  name: final-cm
+                  key: HEADER
