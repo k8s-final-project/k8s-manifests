@@ -12,7 +12,6 @@ spec:
       labels:
         app: final-app
     spec:
-      serviceAccountName: clo835
       containers:
         - name: final-app
           image: 120587352063.dkr.ecr.us-east-1.amazonaws.com/my_app:v1
