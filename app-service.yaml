@@ -9,4 +9,5 @@ spec:
   ports:
     - port: 81
       targetPort: 81
+      NodePort: 30000
   type: LoadBalancer
