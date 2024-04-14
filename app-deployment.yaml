@@ -15,6 +15,10 @@ spec:
       containers:
         - name: final-app
           image: 120587352063.dkr.ecr.us-east-1.amazonaws.com/my_app:v1
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "50Mi"
           ports:
             - containerPort: 81
           env:
